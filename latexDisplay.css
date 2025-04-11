@@ -1,4 +1,6 @@
 .custom-latex-display {
+    --copied-str: "Copy";
+    position: relative;
     margin: 0 !important;
     padding: 0.5em 0 !important;
 }
@@ -7,11 +9,32 @@
     background-color: rgba(50, 50, 50, 0.85);
     cursor: pointer;
 }
+.custom-latex-display::after {
+    content: var(--copied-str);
+    position: absolute;
+    font-family: var(--default-font-family,ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji");
+    font-weight: 600;
+    font-size: medium;
+    padding: 0.25em 0.5em;
+    left: 50%;
+    top: -1.5em;
+    width: fit-content;
+    height: fit-content;
+    translate: -50% -50%;
+    background: rgb(13, 13, 13);
+    border-radius: 0.5em;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.custom-latex-display:hover::after {
+    opacity: 1;
+}
 
 .copied {
-    position:relative;
+    position: relative;
 }
-.copied::after {
+
+.copied::before {
     box-sizing: border-box;
     content: "";
     position: absolute;
@@ -24,6 +47,7 @@
     background: rgb(138, 138, 138);
     animation: custom-pulse 0.5s forwards;
 }
+
 
 @keyframes custom-pulse {
     0% {

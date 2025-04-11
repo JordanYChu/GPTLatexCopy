@@ -23,8 +23,10 @@ function addLatexListeners() {
 
                     // animation for copy
                     katexEl.classList.add("copied");
+                    katexEl.style.setProperty("--copied-str", '"Copied!"');
                     katexEl.addEventListener("animationend", () => {
                         katexEl.classList.remove("copied");
+                        katexEl.style.setProperty("--copied-str", '"Copy"');
                     });
                 });
             });
