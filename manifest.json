@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "GPTLatexCopy",
+    "version": "1.0.0",
+    "description": "Easily copy latex code from ChatGPT",
+    "content_scripts": [
+        {
+            "matches": ["https://chatgpt.com/c/*"],
+            "js": ["copier.js"],
+            "css": ["latexDisplay.css"],
+            "run_at": "document_start"
+        }
+    ],
+    "icons": {
+    }
+}
